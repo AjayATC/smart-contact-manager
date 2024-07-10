@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="normal/base::Layout(~{::section})" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Contact</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+</head>
+
+<body>
+<section>
+
+    <div class="card mx-3 mt-3">
+        <div class="card-body">
+            <h1 class="text-center">Add Contact</h1>
+
+            <div class="container-fluid mt-3">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+
+                        <form class="mt-2" enctype="multipart/form-data" method="post"
+                              th:action="@{/user/process-contact}" th:object="${contact}">
+
+                            <!-- First Name -->
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="firstName" name="name" placeholder="Enter Name here"
+                                           required type="text"/>
+                                </div>
+                            </div>
+
+                            <!-- Second Name -->
+                            <div class="form-group">
+                                <label for="secondName">Second Name</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fas fa-user-alt"></i>
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="secondName" name="secondName"
+                                           placeholder="Enter Nick Name here" type="text"/>
+                                </div>
+                            </div>
+
+                            <!-- Phone Field -->
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-phone"></i>
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="phone" name="phone"
+                                           placeholder="Enter Phone Number here" required type="tel"/>
+                                </div>
+                            </div>
+
+                            <!-- Email Field -->
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            @
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="email" name="email" placeholder="Enter Email here"
+                                           required type="email"/>
+                                </div>
+                            </div>
+
+                            <!-- Work Field -->
+                            <div class="form-group">
+                                <label for="work">Work</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="fa fa-briefcase"></i>
+                                        </div>
+                                    </div>
+                                    <input class="form-control" id="work" name="work" placeholder="Enter Work here"
+                                           type="text"/>
+                                </div>
+                            </div>
+
+                            <!-- Contact Description -->
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" name="description"
+                                          placeholder="Enter contact description" rows="5"></textarea>
+                            </div>
+
+                            <!-- Contact Image -->
+                            <div class="form-group">
+                                <label for="profileImage">Profile Image</label>
+                                <div class="custom-file">
+                                    <input class="custom-file-input" id="profileImage" name="profileImage" type="file">
+                                    <label class="custom-file-label" for="profileImage">Choose file</label>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary" type="submit">Save Contact</button>
+                                <button class="btn btn-secondary" type="reset">Reset</button>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+</html>

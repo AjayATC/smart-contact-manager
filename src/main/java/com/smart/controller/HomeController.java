@@ -4,6 +4,7 @@ import com.smart.dao.UserRepository;
 import com.smart.entities.User;
 import com.smart.helper.Message;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,6 +18,9 @@ import javax.validation.Valid;
 
 @Controller
 public class HomeController {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
     private UserRepository userRepository;
@@ -59,6 +63,7 @@ public class HomeController {
             user.setRole("ROLE_USER");
             user.setEnabled(true);
             user.setImageUrl("default.png");
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
 
             User savedUser = this.userRepository.save(user);
 
@@ -72,4 +77,12 @@ public class HomeController {
 
         return "signup";
     }
+
+    // Handler for custom login
+    @GetMapping("/signin")
+    public String customLogin(Model model) {
+        model.addAttribute("title", "Login page");
+        return "login";
+    }
 }
+
