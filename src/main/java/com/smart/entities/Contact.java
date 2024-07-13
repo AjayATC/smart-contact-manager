@@ -15,9 +15,10 @@ public class Contact {
     private String email;
     private String phone;
     private String image;
-    @Column(length = 1000)
+    @Column(length = 3000)
     private String description;
-
+    //file
+    private byte[] profileImage;
     @ManyToOne
     private User user;
 
@@ -25,6 +26,7 @@ public class Contact {
         super();
         // TODO Auto-generated constructor stub
     }
+
 
     public int getcId() {
         return cId;
@@ -97,5 +99,5 @@ public class Contact {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
 }

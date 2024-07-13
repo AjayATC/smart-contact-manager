@@ -28,7 +28,7 @@ public class User {
     private String email;
 
     @NotBlank(message = "Password is required")
-    @Size(min = 5, message = "Password must be at least 5 characters long")
+    @Size(min = 3, message = "Password must be at least 3 characters long")
     private String password;
 
     private String role;

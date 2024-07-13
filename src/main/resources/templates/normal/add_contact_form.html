@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <input class="form-control" id="secondName" name="secondName"
-                                           placeholder="Enter Nick Name here" type="text"/>
+                                           placeholder="Enter Nick Name here" required type="text"/>
                                 </div>
                             </div>
 
@@ -62,8 +62,9 @@
                                             <i class="fa fa-phone"></i>
                                         </div>
                                     </div>
-                                    <input class="form-control" id="phone" name="phone"
-                                           placeholder="Enter Phone Number here" required type="tel"/>
+                                    <input class="form-control" id="phone"
+                                           min="10" name="phone" placeholder="Enter Phone Number here" required
+                                           type="tel"/>
                                 </div>
                             </div>
 
@@ -103,12 +104,8 @@
                             </div>
 
                             <!-- Contact Image -->
-                            <div class="form-group">
-                                <label for="profileImage">Profile Image</label>
-                                <div class="custom-file">
-                                    <input class="custom-file-input" id="profileImage" name="profileImage" type="file">
-                                    <label class="custom-file-label" for="profileImage">Choose file</label>
-                                </div>
+                            <div class="custom-file">
+                                <input name="profileImage" type="file">
                             </div>
 
                             <!-- Submit Button -->
@@ -124,6 +121,18 @@
             </div>
         </div>
     </div>
+
+    <!-- TinyMCE start -->
+
+    <!--<script referrerpolicy="origin" src="https://cdn.tiny.cloud/1/no-api-key/tinymce/7/tinymce.min.js"></script>
+
+    <script>
+        tinymce.init({
+          selector: '#mytextarea'
+        });
+    </script>-->
+
+    <!-- TinyMCE end -->
 
 </section>
 
