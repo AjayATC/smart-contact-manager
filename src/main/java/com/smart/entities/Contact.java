@@ -17,8 +17,6 @@ public class Contact {
     private String image;
     @Column(length = 3000)
     private String description;
-    //file
-    private byte[] profileImage;
     @ManyToOne
     private User user;
 
@@ -100,4 +98,9 @@ public class Contact {
         this.user = user;
     }
 
+    @Override
+    public boolean equals(Object object) {
+        // TODO Auto-generated method stub
+        return this.cId == ((Contact) object).getcId();
+    }
 }

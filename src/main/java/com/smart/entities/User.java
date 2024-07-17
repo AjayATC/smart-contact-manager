@@ -11,7 +11,7 @@ import java.util.List;
 @Table(name = "USER")
 public class User {
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "user")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", orphanRemoval = true)
     List<Contact> contacts = new ArrayList<>();
 
     @Id
