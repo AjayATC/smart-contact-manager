@@ -1,5 +1,7 @@
 package com.smart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Contact {
     @Column(length = 3000)
     private String description;
     @ManyToOne
+    @JsonIgnore
     private User user;
 
     public Contact() {
